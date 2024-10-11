@@ -1,0 +1,24 @@
+A lifestyle e-commerce company, FitnessHub, has a website that sells fitness-related products and offers workout
+ routines to its customers. The website has a section dedicated to fitness blogs where customers can read and 
+share their fitness experiences. The website is built using React and uses CSS3 for styling. The design team
+ at FitnessHub wants to ensure that the blog section is responsive and accessible on various devices, including
+ desktops, laptops, tablets, and mobile phones. They want to use media queries in CSS3 to achieve this.
+
+The design team has identified three breakpoints for the website: 768px, 480px, and 320px. They want to apply 
+different styles to the blog section based on these breakpoints. For devices with a screen width of 768px or 
+more, they want to display three blog posts in a row. For devices with a screen width between 480px and 767px,
+ they want to display two blog posts in a row. For devices with a screen width of 479px or less, they want to 
+display one blog post in a row.
+
+What CSS media query rule should the design team use to apply styles for devices with a screen width of 480px or more but less than 768px?
+
+@media only screen and (min-width: 480px) { ... }
+
+= @media only screen and (max-width: 767px) { ... }
+
+@media only screen and (min-width: 768px) and (max-width: 479px) { ... }
+
+@media only screen and (min-width: 320px) and (max-width: 480px) { ... }
+
+Reason: This media query rule `@media only screen and (max-width: 767px)` correctly targets devices with a maximum screen width of 767px. 
+However, it does not specify the minimum width required (480px).
