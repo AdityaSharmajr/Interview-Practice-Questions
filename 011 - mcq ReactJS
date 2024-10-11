@@ -1,0 +1,49 @@
+A social media company, "SocialConnect", wants to implement a feature to display a list of trending topics on their platform.
+ The trending topics should be fetched from the server and displayed on the user's homepage. The frontend team is tasked with
+ building this feature using React. They decide to create a TrendingTopics component that will fetch the data from the server
+ and render the list of trending topics. The component should also handle cases where the server returns an error or the data
+ is not available.
+
+The TrendingTopics component is defined as follows:
+
+class TrendingTopics extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      trendingTopics: [],
+      error: null,
+    };
+  }
+
+  componentDidMount() {
+    // API call to fetch trending topics
+    fetch('/api/trending-topics')
+      .then(response => response.json())
+      .then(data => {
+        this.setState({ trendingTopics: data });
+      })
+      .catch(error => {
+        this.setState({ error: error.message });
+      });
+  }
+
+  render() {
+    if (this.state.error) {
+      return <div>Error: {this.state.error}</div>;
+    } else {
+      return (
+        <ul>
+          {this.state.trendingTopics.map(topic => (
+            <li key={topic.id}>{topic.name}</li>
+          ))}
+        </ul>
+      );
+    }
+  }
+}
+What is the purpose of the componentDidMount lifecycle method in the above implementation?
+
+In React, componentDidMount is used to set the initial state of the component.
+In React, componentDidMount is used to handle client-side routing.
+= The componentDidMount lifecycle method is used to fetch data from the server after the component has been mounted to the DOM.
+The componentDidMount lifecycle method is used to update the component's state in response to user interactions.
