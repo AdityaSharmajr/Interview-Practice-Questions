@@ -1,0 +1,98 @@
+A social media company, SocialBuzz, is developing a feature to display a user's profile information on their homepage.
+ The profile information includes the user's name, profile picture, bio, and followers count. The development team has 
+decided to use ReactJS to build this feature. The team has created a Profile component that fetches the user's profile
+ information from an API and displays it on the page.
+
+The Profile component is currently using the useState hook to store the user's profile information. However, the team 
+wants to refactor the component to use the useReducer hook for state management. The reason for this is that the team
+ anticipates that the profile information will grow in complexity and using useReducer will make it easier to manage 
+the state.
+
+Write a pseudo-code for the Profile component using the useReducer hook to manage the state. The pseudo-code should include
+the reducer function, the initial state, and the action creators.
+Assume that the API returns the following JSON response:
+{ name: "John Doe", profilePicture: "https://example.com/johndoe.jpg", bio: "Software Engineer", followersCount: 100 }.
+Use ReactJS syntax and conventions in your pseudo-code. Do not write the entire React component, only focus on the state
+management using useReducer hook.
+
+Note: You can use any convention for naming variables, functions, and actions. However, ensure that your pseudo-code is readable and follows ReactJS best practices.
+
+
+
+// Initial State
+const initialState = {
+  name: '',
+  profilePicture: '',
+  bio: '',
+  followersCount: 0,
+  loading: true,
+  error: null
+};
+
+// Actions
+const ACTIONS = {
+  FETCH_SUCCESS: 'fetch_success',
+  FETCH_ERROR: 'fetch_error'
+};
+
+// Reducer Function
+function profileReducer(state, action) {
+  switch (action.type) {
+    case ACTIONS.FETCH_SUCCESS:
+      return {
+        ...state,
+        name: action.payload.name,
+        profilePicture: action.payload.profilePicture,
+        bio: action.payload.bio,
+        followersCount: action.payload.followersCount,
+        loading: false,
+        error: null
+      };
+    case ACTIONS.FETCH_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error
+      };
+    default:
+      return state;
+  }
+}
+
+// Action Creators
+function fetchSuccess(profileData) {
+  return {
+    type: ACTIONS.FETCH_SUCCESS,
+    payload: {
+      name: profileData.name,
+      profilePicture: profileData.profilePicture,
+      bio: profileData.bio,
+      followersCount: profileData.followersCount
+    }
+  };
+}
+
+function fetchError(errorMessage) {
+  return {
+    type: ACTIONS.FETCH_ERROR,
+    payload: { error: errorMessage }
+  };
+}
+
+// Using useReducer in a component
+function Profile() {
+  const [state, dispatch] = useReducer(profileReducer, initialState);
+
+  // Fetch profile data from API
+  async function fetchProfileData() {
+    try {
+      const response = await fetch('https://api.example.com/user/profile');
+      const data = await response.json();
+      dispatch(fetchSuccess(data));
+    } catch (error) {
+      dispatch(fetchError('Failed to fetch profile information.'));
+    }
+  }
+
+  // Call fetchProfileData when component mounts (useEffect would be here)
+}
