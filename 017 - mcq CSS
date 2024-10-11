@@ -1,0 +1,21 @@
+SocialMediaPro is a social media platform that allows users to share photos and videos. The platform wants 
+to redesign its profile page to make it more user-friendly and visually appealing. The design team has decided
+ to use a grid layout to display the user's posts, with three columns on desktop screens and two columns on
+ mobile screens. However, they are facing issues with aligning the posts correctly. They want to ensure that 
+all posts have equal width and height, regardless of their content.
+
+The current HTML structure for a post is:
+
+<div class="post">
+  <img src="image.jpg" alt="Post image">
+  <div class="post-content">
+    <h2>Post title</h2>
+    <p>Post description</p>
+  </div>
+</div>
+What CSS rule should be applied to the .post container to achieve this layout using grid?
+
+display: flex; flex-wrap: wrap;
+grid-template-columns: repeat(3, 1fr);
+= display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+display: inline-grid; grid-template-columns: auto;
