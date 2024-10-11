@@ -1,0 +1,23 @@
+Samantha is a frontend developer at a social media company, where she is working on a feature to implement 
+a "Did you know" section on the user's profile page. The feature requires displaying a series of fun facts
+ in a carousel format. Samantha wants to use JavaScript to create an array of objects, where each object 
+represents a fun fact with its corresponding image and description. However, she realizes that she needs to 
+use ES6 features to make her code more concise and efficient.
+
+She writes the following code:
+
+const funFacts = [];
+for (let i = 0; i < 10; i++) {
+  funFacts.push({
+    id: i,
+    image: `fact-${i}.jpg`,
+    description: `Fun fact #${i}`,
+  });
+}
+However, Samantha's colleague suggests that she can further improve her code by using arrow functions. How can
+ Samantha modify her code to use arrow functions?
+
+Use the forEach method and pass an arrow function as a callback.
+= Use the map method and pass an arrow function as a callback.
+Use an immediately invoked function expression (IIFE) with an arrow function inside.
+Define an arrow function separately and then call it inside the for loop.
