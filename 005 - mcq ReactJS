@@ -1,0 +1,42 @@
+A social media company, "SnapIt", is building a new feature to allow users to post comments on their friends' photos.
+ The feature should allow users to edit their comments after posting. The company is using ReactJS for the frontend
+ development. The development team is struggling to implement the edit feature, and the team lead wants to use React
+ Hooks to manage the state of the comments.
+
+The team lead wants to display all the comments below the photo, and when a user clicks on the "Edit" button, the comment
+ should be editable. The edited comment should be updated in real-time. The team lead also wants to ensure that the commenting feature is scalable and efficient.
+
+The team has already implemented the following code to display the comments:
+
+import React, { useState } from 'react';
+
+function CommentSection() {
+  const [comments, setComments] = useState([
+    { id: 1, text: 'Great photo!' },
+    { id: 2, text: 'Love it!' }
+  ]);
+
+  return (
+    <div>
+      {comments.map((comment) => (
+        <div key={comment.id}>
+          {comment.text}
+          <button>Edit</button>
+        </div>
+      ))}
+    </div>
+  );
+}
+The team lead wants to know how to update the code to make the comments editable when the "Edit" button is clicked.
+
+Which of the following approaches is the correct way to implement the edit feature using React Hooks?
+Use the useState hook to store the edited comment and update the state when the user clicks the "Edit" button.
+Use the useEffect hook to update the comment when the user clicks the "Edit" button.
+Create a separate component for the editable comment and use the useContext hook to share the state between components.
+= Use the useReducer hook to manage the state of the comments and update the state when the user clicks the "Edit" button.
+
+
+The useReducer hook provides better state management when dealing with complex state logic, such as handling multiple
+comments and actions (like editing, saving, etc.).
+It scales well as the complexity of the feature increases.
+It helps manage state transitions in a predictable way, especially when dealing with multiple comment edits and possible actions for each comment.
