@@ -1,0 +1,35 @@
+A popular e-commerce website, "ShopEasy", has a product listing page where they display multiple products in a row.
+ The product listing page has a responsive design, and the website developers want to ensure that the layout is 
+flexible and adapts to different screen sizes. They have implemented a flexbox layout to achieve this. The HTML 
+structure for a single product is as follows:
+
+<div class="product">
+  <img src="product-image.jpg" alt="Product Image">
+  <div class="product-info">
+    <h2>Product Name</h2>
+    <p>Product Description</p>
+    <button>Add to Cart</button>
+  </div>
+</div>
+The CSS for the product listing page is as follows:
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.product {
+  flex-basis: 30%;
+  margin: 10px;
+}
+However, the developers noticed that the product images are not aligning properly with the product information on smaller screens. They want to ensure that the product image is always aligned to the top of the product information, even on smaller screens. What CSS property should they add to the .product class to achieve this?
+
+flex-grow: 1;
+align-items: flex-start;
+= align-self: flex-start;
+justify-content: flex-start;
+
+align-items controls the alignment of items along the cross-axis (in this case, the vertical axis if the default flex-direction
+ is horizontal).
+flex-start ensures that the items inside the flex container (such as the image and product info) are aligned to the top 
+(start of the cross-axis).
