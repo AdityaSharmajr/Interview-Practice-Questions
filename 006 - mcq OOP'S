@@ -1,0 +1,17 @@
+In a social media platform, a developer is tasked with designing a system to handle user interactions with posts.
+ The system should be able to handle various types of posts, such as images, videos, and text-only posts. The 
+developer decides to use object-oriented programming principles to design the system.
+
+The developer creates a base class called Post with properties such as id, content, and createdAt. The developer
+ also creates subclasses ImagePost, VideoPost, and TextPost that inherit from the Post class. Each subclass has 
+additional properties specific to its type, such as imageURL for ImagePost and videoURL for VideoPost.
+
+When a user interacts with a post, the system should be able to determine the type of post and display it accordingly.
+ For example, if a user likes an image post, the system should display the image and update the like count.
+
+Which of the following principles of object-oriented programming is used in this design?
+
+= Inheritance is used to create a new class that is a modified version of an existing class.
+Polymorphism is used to write methods that can work with objects of different classes.
+Encapsulation is used to hide the implementation details of an object from the outside world.
+Abstraction is used to show only the necessary information to the outside world.
