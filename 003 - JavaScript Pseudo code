@@ -1,0 +1,49 @@
+A social media platform, "SocialConnect", wants to implement a feature to display the number of likes and comments 
+on a post in real-time. The platform has a large user base, and the developers want to ensure that the feature is
+ scalable and efficient. They decide to use JavaScript to implement this feature.
+
+The development team has already created a function getPostDetails that takes a post ID as a parameter and returns
+ a promise that resolves with an object containing the post's details, including the number of likes and comments.
+ However, the function is not yet optimized for performance.
+
+Your task is to modify the getPostDetails function to use asynchronous JavaScript (Promises and/or Async/Await) to
+ fetch the post details and update the UI in real-time.
+
+Here's the initial implementation of the getPostDetails function:
+
+function getPostDetails(postId) {
+  const url = `https://api.socialconnect.com/posts/${postId}`;
+  const response = await fetch(url);
+  const postData = await response.json();
+  return postData;
+}
+Assume that the API endpoint returns a JSON object with the following structure:
+
+{
+  "id": 123,
+  "likes": 100,
+  "comments": 20
+}
+Write a modified version of the getPostDetails function that uses asynchronous JavaScript to fetch the post details
+ and update the UI in real-time. You can use Promises, Async/Await, or any other asynchronous JavaScript technique to achieve this.
+Note: You can assume that the UI update function is already implemented and takes the post details as an argument. You only need to
+ focus on modifying the getPostDetails function to use asynchronous JavaScript.
+
+async function getPostDetails(postId) {
+  const url = `https://api.socialconnect.com/posts/${postId}`;
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Error fetching post details: ${response.statusText}`);
+    }
+
+    const postData = await response.json();
+
+    updateUI(postData); 
+
+    return postData; 
+  } catch (error) {
+    console.error('Failed to fetch post details:', error);
+  }
+}
