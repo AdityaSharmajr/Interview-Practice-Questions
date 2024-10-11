@@ -1,0 +1,56 @@
+E-commerce websites often have multiple categories of products, and each category has its own unique
+ layout and design. You are tasked with creating a responsive e-commerce website using SASS for styling.
+ The website has three main categories: Electronics, Fashion, and Home Decor. Each category has a different
+ background color and font style.
+
+The Electronics category should have a dark blue background (#212121) with a font size of 18px and a font
+ family of Arial. The Fashion category should have a light pink background (#FFC5C5) with a font size of 
+16px and a font family of Times New Roman. The Home Decor category should have a light green background 
+(#C6EFCE) with a font size of 17px and a font family of Helvetica.
+
+Write a SASS code that uses nesting and variables to define the styles for each category. You can assume
+ that the HTML structure for the categories is already defined, and you only need to focus on writing the SASS code.
+
+Use the following variables: $dark-blue: #212121;, $light-pink: #FFC5C5;, $light-green: #C6EFCE;, $arial: 
+Arial;, $times-new-roman: Times New Roman;, and $helvetica: Helvetica;.
+
+Note: You can use the @each loop or any other method to define the styles for each category.
+
+// Define variables
+$dark-blue: #212121;
+$light-pink: #FFC5C5;
+$light-green: #C6EFCE;
+$arial: Arial;
+$times-new-roman: "Times New Roman";
+$helvetica: Helvetica;
+
+// Define categories with their styles
+.categories {
+  // Define styles for each category
+  &__electronics {
+    background-color: $dark-blue;
+    font-size: 18px;
+    font-family: $arial;
+    h2 {
+      font-weight: bold;
+    }
+  }
+
+  &__fashion {
+    background-color: $light-pink;
+    font-size: 16px;
+    font-family: $times-new-roman;
+    h2 {
+      font-style: italic;
+    }
+  }
+
+  &__home-decor {
+    background-color: $light-green;
+    font-size: 17px;
+    font-family: $helvetica;
+    h2 {
+      text-decoration: underline;
+    }
+  }
+}
