@@ -1,0 +1,13 @@
+A startup, "EduTech", is developing a new e-learning platform that allows teachers to create and share 
+interactive lesson plans with their students. The development team consists of 5 members, and they are
+ using Git as their version control system. They have been working on the project for a month and have
+made several changes to the codebase. However, they realize that they need to revert back to a previous
+ version of the codebase because they introduced a bug that broke the entire application. They want to
+ go back to a specific commit that was made two weeks ago.
+
+What command should they use to retrieve the commit history and find the specific commit they want to revert back to?
+
+= git log -p
+git branch -a
+git reset --hard HEAD~2
+gitk --all
