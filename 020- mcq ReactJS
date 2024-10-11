@@ -1,0 +1,26 @@
+As a frontend developer at a popular e-commerce company, you're working on a project to improve the search 
+functionality of the website. The website is built using React and Redux, and you're tasked with implementing
+ server-side rendering (SSR) to improve the SEO and page load times. The website receives a high volume of 
+traffic, and the search results page is one of the most visited pages on the site. You've been asked to 
+optimize the search results page for SSR. You're using Node.js as the server-side runtime environment. The
+ search results page is currently rendered on the client-side, and you need to modify it to render on the
+ server-side. The page uses Material-UI components for styling, and SASS for CSS preprocessing.
+
+The search results page receives a list of products as a JSON response from the API, and then renders a list
+ of cards, each containing product information. You've already implemented the API call to retrieve the list
+ of products on the server-side, and now you need to render the list of cards on the server-side. You're using
+ React's ReactDOMServer.renderToString method to render the component to a string.
+
+Which of the following approaches would you use to optimize the server-side rendering of the search results page for improved performance?
+
+Use React's shouldComponentUpdate method to minimize the number of re-renders on the server-side.
+
+Use Redux's connect method to connect the search results component to the Redux store, and then render the component on the server-side.
+
+= Use a caching layer, such as Redis, to cache the rendered HTML of the search results page.
+
+Use a library like Next.js to handle server-side rendering and routing for the entire application.
+
+Reason: Using a caching layer like Redis to cache the rendered HTML of the search results page is an effective way 
+to optimize server-side rendering for improved performance. By caching the rendered HTML, you can reduce the load on 
+your server by serving cached content for repeated requests, thereby improving response times and reducing server processing overhead.
