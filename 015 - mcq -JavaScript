@@ -1,0 +1,50 @@
+A popular e-commerce company, "ShopEasy", has an online shopping platform that allows users to create and manage
+ their wishlists. The company wants to improve the performance of their wishlist feature by optimizing the rendering
+ of the wishlist items. The frontend team decides to use JavaScript's ES6 features to achieve this. They have a 
+function renderWishlistItems that takes an array of wishlist items as an input and returns an array of HTML elements
+ representing the items. The function is currently implemented using var declarations and function expressions. 
+However, the team wants to refactor the function to use let and const declarations and arrow functions to improve 
+code readability and performance.
+
+Here is the original implementation:
+
+var renderWishlistItems = function(items) {
+  var htmlElements = [];
+  for (var i = 0; i < items.length; i++) {
+    htmlElements.push(`<div>${items[i].name}</div>`);
+  }
+  return htmlElements;
+}
+What is the refactored implementation of the renderWishlistItems function using let, const, and arrow functions?
+
+const renderWishlistItems = (items) => {
+  let htmlElements = new Array(items.length);
+  for (let i = 0; i < items.length; i++) {
+    htmlElements[i] = `<div>${items[i].name}</div>`;
+  }
+  return htmlElements;
+}
+
+= const renderWishlistItems = (items) => {
+  const htmlElements = [];
+  for (let i = 0; i < items.length; i++) {
+    htmlElements.push(`<div>${items[i].name}</div>`);
+  }
+  return htmlElements;
+}
+
+let renderWishlistItems = (items) => {
+  const htmlElements = new Array(items.length);
+  for (let i = 0; i < items.length; i++) {
+    htmlElements[i] = `<div>${items[i].name}</div>`;
+  }
+  return htmlElements;
+}
+
+var renderWishlistItems = (items) => {
+  let htmlElements = [];
+  for (let i = 0; i < items.length; i++) {
+    htmlElements.push(`<div>${items[i].name}</div>`);
+  }
+  return htmlElements;
+}`
