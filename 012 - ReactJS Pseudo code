@@ -1,0 +1,87 @@
+Suppose you are a frontend developer at a popular e-commerce company, and you are tasked with building a React 
+application that displays a list of products on a webpage. The list of products is fetched from a REST API, and 
+the API returns a JSON object with the product details. The application should display the products in a grid 
+layout with a maximum of 4 products per row. When the user clicks on a product, the application should display 
+the product details in a modal window.
+
+The application also has a search bar that allows users to search for products by name. When the user types a
+ search query, the application should fetch the search results from the API and update the list of products 
+accordingly.
+
+You are required to write a React component that fetches the list of products from the API, updates the list 
+when the user searches for products, and displays the product details in a modal window when the user clicks
+ on a product. You should use the useState and useEffect hooks to achieve this functionality.
+
+Assume that the API endpoint for fetching products is https://api.example.com/products, and the API endpoint for
+ searching products is https://api.example.com/search. The API returns a JSON object with the following structure:
+
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Product 1",
+      "price": 10.99,
+      "description": "This is product 1"
+    },
+    {
+      "id": 2,
+      "name": "Product 2",
+      "price": 9.99,
+      "description": "This is product 2"
+    },
+    ...
+  ]
+}
+Write a React component that achieves the above functionality. You can use Material-UI for styling and layout.
+
+import React, { useState, useEffect } from 'react';
+import { Grid, TextField, Button, Modal, Typography, Card, CardContent, CardActions } from '@mui/material';
+import axios from 'axios'; // For API requests
+
+const ProductGrid = () => {
+  // State variables
+  const [products, setProducts] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [open, setOpen] = useState(false);
+
+  // Fetch all products when the component loads
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  // Function to fetch all products
+  const fetchProducts = async () => {
+    try {
+      const response = await axios.get('https://api.example.com/products');
+      setProducts(response.data.products);
+    } catch (error) {
+      console.error('Error fetching products:', error);
+    }
+  };
+
+  // Function to search for products based on user input
+  const searchProducts = async () => {
+    if (searchQuery.trim() === '') {
+      fetchProducts(); // Reset to all products if search query is empty
+      return;
+    }
+    try {
+      const response = await axios.get(`https://api.example.com/search?query=${searchQuery}`);
+      setProducts(response.data.products);
+    } catch (error) {
+      console.error('Error fetching search results:', error);
+    }
+  };
+
+  // Function to handle when a product is clicked
+  const handleProductClick = (product) => {
+    setSelectedProduct(product);
+    setOpen(true); // Open the modal
+  };
+
+  // Function to handle modal close
+  const handleClose = () => {
+    setOpen(false);
+    setSelectedProduct(null); // Clear selected product
+  };
